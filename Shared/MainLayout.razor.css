@@ -1,0 +1,48 @@
+.master-view-container {
+    height: 100%;
+    align-items: stretch;
+}
+.group {
+    min-width: 50px;
+    min-height: 50px;
+    align-items: stretch;
+    position: relative;
+    flex-grow: 1;
+}
+.view-container {
+    position: relative;
+    flex-grow: 1;
+}
+.navbar {
+    height: max-content;
+    min-width: min-content;
+}
+.nav-drawer {
+    width: 320px;
+    flex-shrink: 0;
+    min-width: min-content;
+    min-height: 0;
+}
+.nav-drawer-item {
+    min-width: 0;
+    min-height: 0;
+}
+.button::part(base) {
+    background-color: transparent;
+}
+.span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+.row {
+    display: flex;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}

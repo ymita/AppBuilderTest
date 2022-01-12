@@ -1,0 +1,21 @@
+.view-3-container {
+    height: 100%;
+    align-items: stretch;
+}
+.h4 {
+    height: max-content;
+    width: max-content;
+    flex-shrink: 0;
+}
+.group {
+    position: relative;
+    padding: 24px;
+    min-width: 50px;
+    min-height: 50px;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: stretch;
+}
+.row {
+    display: flex;
+}

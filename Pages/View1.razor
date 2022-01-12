@@ -1,0 +1,23 @@
+@page "/"
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+
+<div class="view-1-container row">
+    <div class="group row">
+        <h4 class="h4">View 1 content</h4>
+        <IgbDataGrid DataSource="northwindCategories" AutoGenerateColumns="false" Density="ControlDisplayDensity.Cosy" SelectionMode="GridSelectionMode.None" Width="800px" Height="400px" class="grid" view-1-scope>
+            <IgbTextColumn HeaderText="categoryID" Field="CategoryID" IsFilteringEnabled="true"></IgbTextColumn>
+            <IgbTextColumn HeaderText="description" Field="Description" IsFilteringEnabled="true"></IgbTextColumn>
+            <IgbTextColumn HeaderText="name" Field="Name" IsFilteringEnabled="true"></IgbTextColumn>
+        </IgbDataGrid>
+    </div>
+</div>
+
+@code {
+    private Northwind.CategoriesType[] northwindCategories = Array.Empty<Northwind.CategoriesType>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        northwindCategories = await HttpClient.GetFromJsonAsync<Northwind.CategoriesType[]>("static-data/northwind-categories.json") ?? northwindCategories;
+    }
+}

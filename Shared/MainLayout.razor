@@ -1,0 +1,49 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="master-view-container column">
+    <IgbNavbar class="navbar" master-view-scope>
+        <div slot="start">
+            <IgbButton Variant="ButtonVariant.Flat">
+                <span class="material-icons">menu</span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div slot="end">
+            <IgbButton Variant="ButtonVariant.Flat" class="button" master-view-scope>
+                <span class="material-icons">help_outline</span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div>App name</div>
+    </IgbNavbar>
+    <div class="group row">
+        <IgbNavDrawer Open="true" class="nav-drawer" master-view-scope>
+            <div>
+                <IgbNavDrawerItem Active="false" @onclick="@(e => Navigate("/"))" class="nav-drawer-item" master-view-scope>
+                    <span slot="content" class="span">Views in this app</span>
+                </IgbNavDrawerItem>
+                <IgbNavDrawerItem Active="false" @onclick="@(e => Navigate("/"))" class="nav-drawer-item" master-view-scope>
+                    <span slot="content" class="material-icons icon">home</span>
+                    <span slot="content" class="span">View 1</span>
+                </IgbNavDrawerItem>
+                <IgbNavDrawerItem Active="false" @onclick="@(e => Navigate("/view-2"))" class="nav-drawer-item" master-view-scope>
+                    <span slot="content" class="material-icons icon">dns</span>
+                    <span slot="content" class="span">View 2</span>
+                </IgbNavDrawerItem>
+                <IgbNavDrawerItem Active="false" @onclick="@(e => Navigate("/view-3"))" class="nav-drawer-item" master-view-scope>
+                    <span slot="content" class="material-icons icon">dashboard</span>
+                    <span slot="content" class="span">View 3</span>
+                </IgbNavDrawerItem>
+            </div>
+        </IgbNavDrawer>
+        <div class="view-container">@Body</div>
+    </div>
+</div>
+
+@code {
+    private void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}
